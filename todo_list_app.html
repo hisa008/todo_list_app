@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="todo_list_app.css">
-        <script src="todo_list_app.js"></script>       
+        <script src="todo_list_app.js" defer></script>       
         <title>TODOリスト</title>
     </head>
     <body>
@@ -11,7 +11,8 @@
             <div class="list-name">todoリスト</div>
             <form>
                 <p>
-                    入力フォーム：<input type="text" name="name" size="40">
+                    入力フォーム：<input type="text" id="input_list" size="40">
+                    <input type="button" id="task_btn" value="送信">
                 </p>
             </form>
         </div>
