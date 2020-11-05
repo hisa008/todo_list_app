@@ -25,11 +25,19 @@
 //     }, false)
 // }, false)
 
+// document.addEventListener('DOMContentLoaded', function() {
+//     var logo = document.getElementById('logo');
+//     var attrs = logo.attributes;
+//     for(i = 0, len = attrs.length; i < len; i++) {
+//         var attr = attrs.item(i);
+//         window.alert(attr.name + ':' + attr.value);
+//     }
+// }, false)
+
+
 document.addEventListener('DOMContentLoaded', function() {
-    var logo = document.getElementById('logo');
-    var attrs = logo.attributes;
-    for(i = 0, len = attrs.length; i < len; i++) {
-        var attr = attrs.item(i);
-        window.alert(attr.name + ':' + attr.value);
-    }
+    document.getElementById('result_text').textContent =
+        '<a href="http://www.wings.msn.to/">WINGSプロジェクト</a>';
+    document.getElementById('result_html').innerHTML =
+        '<a href="http://www.wings.msn.to/">WINGSプロジェクト</a>';
 }, false)
