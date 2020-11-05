@@ -1,0 +1,35 @@
+// let s = document.getElementById('food');
+// let opts = s.childNodes;
+
+// for (let i = 0, len = opts.length; i < len; i++) {
+//     let opt = opts.item(i);
+//     // if (opt.nodeType === 1) {
+//     //     window.alert(opt.value);
+//     // }
+//     window.alert(opt.value);
+// }
+
+// function btn_click() {
+//     window.alert('ボタンがクリックされました');
+// }
+
+// window.onload = function () {
+//     document.getElementById('btn').onclick =function() {
+//         window.alert('ボタンがクリックされましたよ');
+//     }
+// }
+
+// document.addEventListener('DOMContentLoaded', function() {
+//     document.getElementById('btn').addEventListener('click', function() {
+//         window.alert('ボタンがクリックされたのだ');
+//     }, false)
+// }, false)
+
+document.addEventListener('DOMContentLoaded', function() {
+    var logo = document.getElementById('logo');
+    var attrs = logo.attributes;
+    for(i = 0, len = attrs.length; i < len; i++) {
+        var attr = attrs.item(i);
+        window.alert(attr.name + ':' + attr.value);
+    }
+}, false)
