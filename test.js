@@ -95,17 +95,33 @@
 
 
 
+// document.addEventListener('DOMContentLoaded', function() {
+//     let setRadioValue = function(name, value) {
+//         let elems = document.getElementsByName(name);
+
+//         for (let i = 0, len = elems.length; i < len; i++) {
+//             let elem = elems.item(i);
+//             if (elem.value == value) {
+//                 elem.checked = true;
+//                 break;
+//             }
+//         }
+//     }
+//     setRadioValue('food', '餃子');
+// }, false);
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
-    let setRadioValue = function(name, value) {
+    let setCheckValue = function(name, value) {
         let elems = document.getElementsByName(name);
 
         for (let i = 0, len = elems.length; i < len; i++) {
             let elem = elems.item(i);
-            if (elem.value == value) {
+            if (value.indexOf(elem.value) > -1) {
                 elem.checked = true;
-                break;
             }
         }
     }
-    setRadioValue('food', '餃子');
+    setCheckValue('food', ['餃子', '焼肉']);
 }, false);
