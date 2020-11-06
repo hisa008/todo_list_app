@@ -57,18 +57,55 @@
 //     }, false)
 // }, false)
 
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('btn').addEventListener('click', function() {
-        let result = [];
-        let foods = document.getElementsByName('food');
+// document.addEventListener('DOMContentLoaded', function() {
+//     document.getElementById('btn').addEventListener('click', function() {
+//         let result = [];
+//         let foods = document.getElementsByName('food');
 
-        for (let i = 0, len = foods.length; i < len; i++) {
-            let food = foods.item(i);
-            if (food.checked) {
-                result.push(food.value);
+//         for (let i = 0, len = foods.length; i < len; i++) {
+//             let food = foods.item(i);
+//             if (food.checked) {
+//                 result.push(food.value);
+//             }
+//         }
+//         window.alert(result.toString());
+//     }, false)
+// }, false)
+
+
+
+// document.addEventListener('DOMContentLoaded', function() {
+//     let getRadioValue = function() {
+//         let result = '';
+//         let elems = document.getElementsByName('food');
+
+//         for (let i = 0, len = elems.length; i < len; i++) {
+//             let elem = elems.item(i);
+//             if (elem.checked) {
+//                 result = elem.value;
+//                 break;
+//             }
+//         }
+//         return result;
+//     }
+//     document.getElementById('btn').addEventListener('click', function() {
+//         window.alert(getRadioValue('food'));
+//     }, false)
+// }, false)
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    let setRadioValue = function(name, value) {
+        let elems = document.getElementsByName(name);
+
+        for (let i = 0, len = elems.length; i < len; i++) {
+            let elem = elems.item(i);
+            if (elem.value == value) {
+                elem.checked = true;
+                break;
             }
         }
-        window.alert(result.toString());
-    }, false)
-}, false)
-
+    }
+    setRadioValue('food', '餃子');
+}, false);
