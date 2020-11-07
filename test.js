@@ -188,24 +188,66 @@
 
 
 
+// document.addEventListener('DOMContentLoaded', function() {
+//     document.getElementById('btn').addEventListener('click', function() {
+//         let name = document.getElementById('name');
+//         let url = document.getElementById('url');
+
+//         let anchor = document.createElement('a'); //1
+//         // anchor.href = url.value; //3
+//         let href = document.createAttribute('href');
+//         href.value = url.value;
+//         anchor.setAttributeNode(href);
+//         let text = document.createTextNode(name.value);
+//         anchor.appendChild(text); //2
+
+//         let br = document.createElement('br'); //1
+//         let list = document.getElementById('list');
+
+//         list.appendChild(anchor); //2
+//         list.appendChild(br); //2
+//     }, false);
+// }, false);
+
+
+// document.addEventListener('DOMContentLoaded', function() {
+//     let books = [
+//         {title: '独習PHP 第3版', price: 3200},
+//         {title: 'Javaポケットリファレンス', price: 2680},
+//         {title: 'アプリを作ろう！Android入門', price: 2000}
+//     ];
+
+//     let list = document.getElementById('list');
+
+//     for(let i = 0, len = books.length; i < len; i++) {
+//         let b = books[i];
+//         let li = document.createElement('li');
+//         let text = document.createTextNode(b.title + ':' + b.price + '円');
+//         li.appendChild(text);
+//         list.appendChild(li); //1
+//     }
+// }, false);
+
+
 document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('btn').addEventListener('click', function() {
-        let name = document.getElementById('name');
-        let url = document.getElementById('url');
+    let books = [
+        {title: '独習PHP 第3版', price: 3200},
+        {title: 'Javaポケットリファレンス', price: 2680},
+        {title: 'アプリを作ろう！Android入門', price: 2000}
+    ];
 
-        let anchor = document.createElement('a'); //1
-        // anchor.href = url.value; //3
-        let href = document.createAttribute('href');
-        href.value = url.value;
-        anchor.setAttributeNode(href);
-        let text = document.createTextNode(name.value);
-        anchor.appendChild(text); //2
+    let list = document.getElementById('list');
 
-        let br = document.createElement('br'); //1
-        let list = document.getElementById('list');
+    let frag = document.createDocumentFragment();
 
-        list.appendChild(anchor); //2
-        list.appendChild(br); //2
-    }, false);
+    for(let i = 0, len = books.length; i < len; i++) {
+        let b = books[i];
+        let li = document.createElement('li');
+        let text = document.createTextNode(b.title + ':' + b.price + '円');
+        li.appendChild(text);
+        frag.appendChild(li); //1
+    }
+    document.getElementById('list').appendChild(frag);
 }, false);
+
 
