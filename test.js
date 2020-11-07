@@ -175,15 +175,37 @@
 // })
 
 
-window.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('file').addEventListener('change', function(e) {
-        let input = document.getElementById('file').files[0];
-        let reader = new FileReader();
-        reader.addEventListener('load', function() {
-            document.getElementById('result').src = reader.result;
-        }, true);
-        reader.readAsDataURL(input, 'UTF-8');
-    }, true);
-});
+// window.addEventListener('DOMContentLoaded', function() {
+//     document.getElementById('file').addEventListener('change', function(e) {
+//         let input = document.getElementById('file').files[0];
+//         let reader = new FileReader();
+//         reader.addEventListener('load', function() {
+//             document.getElementById('result').src = reader.result;
+//         }, true);
+//         reader.readAsDataURL(input, 'UTF-8');
+//     }, true);
+// });
 
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('btn').addEventListener('click', function() {
+        let name = document.getElementById('name');
+        let url = document.getElementById('url');
+
+        let anchor = document.createElement('a'); //1
+        // anchor.href = url.value; //3
+        let href = document.createAttribute('href');
+        href.value = url.value;
+        anchor.setAttributeNode(href);
+        let text = document.createTextNode(name.value);
+        anchor.appendChild(text); //2
+
+        let br = document.createElement('br'); //1
+        let list = document.getElementById('list');
+
+        list.appendChild(anchor); //2
+        list.appendChild(br); //2
+    }, false);
+}, false);
 
