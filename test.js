@@ -180,14 +180,9 @@ window.addEventListener('DOMContentLoaded', function() {
         let input = document.getElementById('file').files[0];
         let reader = new FileReader();
         reader.addEventListener('load', function() {
-            document.getElementById('result').textContent = reader.result;
+            document.getElementById('result').src = reader.result;
         }, true);
-        reader.addEventListener('error', function() {
-            window.alert('エラー');
-        }, true);
-        reader.readAsText(input, 'UTF-8');
-        
-        reader.abort();
+        reader.readAsDataURL(input, 'UTF-8');
     }, true);
 });
 
