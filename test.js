@@ -128,20 +128,67 @@
 
 
 
-document.addEventListener('DOMContentLoaded', function() {
-    let getSelectValue = function(name) {
-        let result = [];
-        let opts = document.getElementById(name).options;
-        for (let i = 0, len = opts.length; i < len; i++) {
-            let opt = opts.item(i);
-            if (opt.selected) {
-                result.push(opt.value);
-            }
-        }
-        return result;
-    }
+// document.addEventListener('DOMContentLoaded', function() {
+//     let getSelectValue = function(name) {
+//         let result = [];
+//         let opts = document.getElementById(name).options;
+//         for (let i = 0, len = opts.length; i < len; i++) {
+//             let opt = opts.item(i);
+//             if (opt.selected) {
+//                 result.push(opt.value);
+//             }
+//         }
+//         return result;
+//     }
     
-    document.getElementById('btn').addEventListener('click', function() {
-        window.alert(getSelectValue('food'));
-    }, false);
-}, false);
+//     document.getElementById('btn').addEventListener('click', function() {
+//         window.alert(getSelectValue('food'));
+//     }, false);
+// }, false);
+
+
+
+// document.addEventListener('DOMContentLoaded', function() {
+//     let setListValue = function(name, value) {
+//         let opts = document.getElementById(name);
+
+//         for(let i = 0, len = opts.length; i < len; i++) {
+//             let opt = opts.item(i);
+//             if (value.indexOf(opt.value) > -1) {
+//                 opt.selected = true;
+//             }
+//         }
+//     };
+//     setListValue('food', ['餃子', '焼肉']);
+// }, false)
+
+
+
+// window.addEventListener('DOMContentLoaded', function() {
+//     document.getElementById("file").addEventListener('change', function(e) {
+//         let inputs = document.getElementById("file").files;
+//         for(let i = 0, len = inputs.length; i < len; i++) {
+//             let input = inputs[i];
+//             console.log()
+//         }
+//     })
+// })
+
+
+window.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('file').addEventListener('change', function(e) {
+        let input = document.getElementById('file').files[0];
+        let reader = new FileReader();
+        reader.addEventListener('load', function() {
+            document.getElementById('result').textContent = reader.result;
+        }, true);
+        reader.addEventListener('error', function() {
+            window.alert('エラー');
+        }, true);
+        reader.readAsText(input, 'UTF-8');
+        
+        reader.abort();
+    }, true);
+});
+
+
