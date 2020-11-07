@@ -112,16 +112,36 @@
 
 
 
-document.addEventListener('DOMContentLoaded', function() {
-    let setCheckValue = function(name, value) {
-        let elems = document.getElementsByName(name);
+// document.addEventListener('DOMContentLoaded', function() {
+//     let setCheckValue = function(name, value) {
+//         let elems = document.getElementsByName(name);
 
-        for (let i = 0, len = elems.length; i < len; i++) {
-            let elem = elems.item(i);
-            if (value.indexOf(elem.value) > -1) {
-                elem.checked = true;
+//         for (let i = 0, len = elems.length; i < len; i++) {
+//             let elem = elems.item(i);
+//             if (value.indexOf(elem.value) > -1) {
+//                 elem.checked = true;
+//             }
+//         }
+//     }
+//     setCheckValue('food', ['餃子', '焼肉']);
+// }, false);
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    let getSelectValue = function(name) {
+        let result = [];
+        let opts = document.getElementById(name).options;
+        for (let i = 0, len = opts.length; i < len; i++) {
+            let opt = opts.item(i);
+            if (opt.selected) {
+                result.push(opt.value);
             }
         }
+        return result;
     }
-    setCheckValue('food', ['餃子', '焼肉']);
+    
+    document.getElementById('btn').addEventListener('click', function() {
+        window.alert(getSelectValue('food'));
+    }, false);
 }, false);
