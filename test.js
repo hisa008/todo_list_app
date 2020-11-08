@@ -252,33 +252,85 @@
 
 
 
+// document.addEventListener('DOMContentLoaded', function() {
+//     let list = document.getElementById('list');
+//     let pic = document.getElementById('pic');
+//     let del = document.getElementById('del');
+
+//     list.addEventListener('click', function(e) {
+//         let isbn = e.target.getAttribute('data-isbn');
+
+//         if(isbn) {
+//             let img = document.createElement('img');
+//             img.src = 'http://www.wings.msn.to/books/' + isbn + '/' + isbn + '.jpg';
+//             img.alt = e.target.textContent;
+//             img.height = 150;
+//             img.width = 108;
+
+//             if(pic.getElementsByTagName('img').length > 0) {
+//                 pic.replaceChild(img, pic.lastChild);
+//             } else {
+//                 del.disabled = false;
+//                 pic.appendChild(img);
+//             }
+//         }
+//     }, false);
+
+//     del.addEventListener('click', function() {
+//         pic.removeChild(pic.lastChild);
+//         del.disabled = true;
+//     }, false);
+// }, false);
+
+
+
+// document.addEventListener('DOMContentLoaded', function() {
+//     let li = document.getElementsByTagName('li');
+//     console.log('変更前:' + li.length);
+
+//     let ul = document.getElementById('list');
+//     ul.appendChild(document.createElement('li'));
+//     console.log('変更後:' + li.length);
+// }, false);
+
+
+
+// document.addEventListener('DOMContentLoaded', function() {
+//     let second = document.getElementById('second');
+//     let li = document.getElementsByTagName('li');
+
+//     for(let i = 0, len = li.length; i < len; i++) {
+//         let item = li.item(i);
+//         let new_li = document.createElement('li');
+//         let new_text = document.createTextNode(item.textContent);
+//         new_li.appendChild(new_text);
+//         second.appendChild(new_li);
+//     }
+// }, false);
+
+
+
+// document.addEventListener('DOMContentLoaded', function() {
+//     let elem = document.getElementById('elem');
+
+//     elem.addEventListener('mouseover', function() {
+//         this.style.backgroundColor = 'Yellow';
+//     }, false);
+
+//     elem.addEventListener('mouseout', function() {
+//         this.style.backgroundColor = '';
+//     }, false);
+// },false);
+
+
 document.addEventListener('DOMContentLoaded', function() {
-    let list = document.getElementById('list');
-    let pic = document.getElementById('pic');
-    let del = document.getElementById('del');
-
-    list.addEventListener('click', function(e) {
-        let isbn = e.target.getAttribute('data-isbn');
-
-        if(isbn) {
-            let img = document.createElement('img');
-            img.src = 'http://www.wings.msn.to/books/' + isbn + '/' + isbn + '.jpg';
-            img.alt = e.target.textContent;
-            img.height = 150;
-            img.width = 108;
-
-            if(pic.getElementsByTagName('img').length > 0) {
-                pic.replaceChild(img, pic.lastChild);
-            } else {
-                del.disabled = false;
-                pic.appendChild(img);
-            }
-        }
+    let elem = document.getElementById('elem');
+    elem.addEventListener('mouseover', function() {
+        this.className = 'highlight';
     }, false);
 
-    del.addEventListener('click', function() {
-        pic.removeChild(pic.lastChild);
-        del.disabled = true;
+    elem.addEventListener('mouseout', function() {
+        this.className = '';
     }, false);
 }, false);
 
