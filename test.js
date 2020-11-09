@@ -345,18 +345,87 @@
 // }, false);
 
 
+// document.addEventListener('DOMContentLoaded', function() {
+//     let elem = document.getElementById('elem');
+
+//     elem.addEventListener('click', function() {
+//         let classes = this.className.split(' ');
+//         let index = classes.indexOf('highlight');
+//         if(index === -1) {
+//             classes.push('highlight');
+//         } else {
+//             classes.splice(index, 1);
+//         }
+//         this.className = classes.join(' ');
+//     }, false);
+// }, false);
+
+
+// window.onload = function() {
+//     let btn = document.getElementById('btn');
+//     btn.onclick = function() {
+//         window.alert('こんにちは、世界！');
+//     };
+//     // btn.onclick = null;
+//     btn.addEventListener('click', listener, false);
+
+//     btn.removeEventListener('click', listener, false);
+// };
+
+
+
+// document.addEventListener('DOMContentLoaded', function() {
+//     let btn = document.getElementById('btn');
+//     let listener = function() {
+//         window.alert('こんにちは、世界！');
+//     };
+
+//     btn.addEventListener('click', listener, false);
+
+//     // btn.removeEventListener('click', listener, false);
+// }, false);
+
+
+
+// document.addEventListener('DOMContentLoaded', function() {
+//     document.getElementById('btn').addEventListener('click', function(e) {
+//         let target = e.target;
+//         console.log('発生元：' + target.nodeName + '/' + target.id);
+//         console.log('種類：' + e.type);
+//     }, false);
+// }, false);
+
+
+
+// document.addEventListener('DOMContentLoaded', function() {
+//     let main = document.getElementById('main');
+//     main.addEventListener('mouseover', function(e) {
+//         main.innerHTML = 'screen' + e.screenX + '/' + e.screenY + '<br>'
+//             + 'page' + e.pageX + '/' + e.pageY + '<br>'
+//             + 'client' + e.clientX + '/' + e.clientY + '<br>'
+//             + 'offset' + e.offsetX + '/' + e.offsetY + '<br>';
+//     }, false);
+// }, false);
+
+
+// document.addEventListener('DOMContentLoaded', function() {
+//     document.getElementById('key').addEventListener('keydown', function(e) {
+//         window.alert('キーコード：' + e.keyCode);
+//     }, false);
+// }, false);
+
+
 document.addEventListener('DOMContentLoaded', function() {
-    let elem = document.getElementById('elem');
+    document.getElementById('inner').addEventListener('click', function(e){
+        window.alert('#innerリスナーが発生しました。');
+        e.stopPropagation();
+    }, true);
 
-    elem.addEventListener('click', function() {
-        let classes = this.className.split(' ');
-        let index = classes.indexOf('highlight');
-        if(index === -1) {
-            classes.push('highlight');
-        } else {
-            classes.splice(index, 1);
-        }
-        this.className = classes.join(' ');
-    }, false);
+    document.getElementById('inner').addEventListener('click', function(e) {
+        window.alert('#innerリスナー2が発生しました。');
+    }, true);
+
+    document.getElementById('inner').addEventListener('click', function(e) {
+        window.alert('#outerリスナーが発生しました。');
+    }, true);
 }, false);
-
