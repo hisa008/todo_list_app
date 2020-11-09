@@ -323,14 +323,40 @@
 // },false);
 
 
+// document.addEventListener('DOMContentLoaded', function() {
+//     let elem = document.getElementById('elem');
+//     elem.addEventListener('mouseover', function() {
+//         this.className = 'highlight';
+//     }, false);
+
+//     elem.addEventListener('mouseout', function() {
+//         this.className = '';
+//     }, false);
+// }, false);
+
+
+
+// document.addEventListener('DOMContentLoaded', function() {
+//     let elem = document.getElementById('elem');
+
+//     elem.addEventListener('click', function() {
+//         this.className = (this.className === 'highlight' ? '' : 'highlight');
+//     }, false);
+// }, false);
+
+
 document.addEventListener('DOMContentLoaded', function() {
     let elem = document.getElementById('elem');
-    elem.addEventListener('mouseover', function() {
-        this.className = 'highlight';
-    }, false);
 
-    elem.addEventListener('mouseout', function() {
-        this.className = '';
+    elem.addEventListener('click', function() {
+        let classes = this.className.split(' ');
+        let index = classes.indexOf('highlight');
+        if(index === -1) {
+            classes.push('highlight');
+        } else {
+            classes.splice(index, 1);
+        }
+        this.className = classes.join(' ');
     }, false);
 }, false);
 
